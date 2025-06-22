@@ -1,0 +1,114 @@
+<UserControl x:Class="SubtitleEditor.UI.Views.AiSettingsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:prism="http://prismlibrary.com/"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             Width="650" Height="650">
+    <UserControl.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+    
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="15"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- 服務類型選擇 -->
+        <StackPanel Grid.Row="0">
+            <TextBlock Text="AI 服務類型：" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding ServiceTypes}" 
+                      SelectedItem="{Binding SelectedServiceType}"
+                      Height="30"/>
+        </StackPanel>
+
+        <!-- OpenAI API Key 設定（僅雲端服務顯示） -->
+        <StackPanel Grid.Row="2" Visibility="{Binding IsCloudServiceSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="OpenAI API Key：" FontWeight="Bold" Margin="0,0,0,5"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+                <PasswordBox Grid.Column="0" x:Name="ApiKeyPasswordBox" Height="30" Margin="0,0,0,5"/>
+                <Button Grid.Column="2" Content="取得 API Key" 
+                        Command="{Binding OpenApiKeyUrlCommand}"
+                        Width="100" Height="30" 
+                        Background="LightBlue" Foreground="DarkBlue"/>
+            </Grid>
+            <TextBlock Text="※ 請前往 OpenAI 網站取得您的 API Key" 
+                       FontSize="11" Foreground="Gray" Margin="0,0,0,5"/>
+            <TextBlock Text="※ 雲端服務需要網路連線，檔案大小限制為 25MB" 
+                       FontSize="11" Foreground="Orange" Margin="0,0,0,5"/>
+        </StackPanel>
+
+        <!-- 語言設定 -->
+        <StackPanel Grid.Row="4">
+            <TextBlock Text="語言：" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding Languages}" 
+                      SelectedItem="{Binding SelectedLanguage}"
+                      Height="30"/>
+        </StackPanel>
+
+        <!-- 選擇AI使用模型（僅本地服務顯示） -->
+        <StackPanel Grid.Row="6" Visibility="{Binding IsLocalServiceSelected, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <TextBlock Text="選擇AI使用模型：" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding GenerationModes}" 
+                      SelectedItem="{Binding SelectedGenerationMode}"
+                      Height="30"/>
+            <TextBlock Grid.Row="1" 
+                       Text="{Binding ModelDescription}" 
+                       FontSize="11" Foreground="Gray" 
+                       Margin="0,5,0,0" TextWrapping="Wrap"/>
+        </StackPanel>
+
+        <!-- 文字分段方式 -->
+        <StackPanel Grid.Row="8">
+            <TextBlock Text="文字分段方式：" FontWeight="Bold" Margin="0,0,0,5"/>
+            <ComboBox ItemsSource="{Binding SegmentationModes}" 
+                      SelectedItem="{Binding SelectedSegmentationMode}"
+                      Height="30"/>
+        </StackPanel>
+
+        <!-- 服務說明 -->
+        <StackPanel Grid.Row="10">
+            <TextBlock Text="服務說明：" FontWeight="Bold" Margin="0,0,0,5"/>
+            <TextBlock Text="{Binding ServiceDescription}" 
+                       FontSize="12" Foreground="DarkBlue" 
+                       TextWrapping="Wrap" 
+                       Background="LightCyan" 
+                       Padding="10,5"
+                       MinHeight="80"/>
+        </StackPanel>
+
+        <!-- 按鈕區域 -->
+        <StackPanel Grid.Row="12" 
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right" 
+                    Margin="0,20,0,0">
+            <Button Content="確定" 
+                    Command="{Binding AcceptCommand}"
+                    Width="80" 
+                    Height="30" 
+                    IsDefault="True"
+                    Margin="0,0,10,0"/>
+            <Button Content="取消" 
+                    Command="{Binding CancelCommand}"
+                    Width="80" 
+                    Height="30" 
+                    IsCancel="True"/>
+        </StackPanel>
+    </Grid>
+</UserControl> 

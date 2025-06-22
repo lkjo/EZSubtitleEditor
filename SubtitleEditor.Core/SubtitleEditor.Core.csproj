@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\SubtitleEditor.Common\SubtitleEditor.Common.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Betalgo.Ranul.OpenAI" Version="9.0.4" />
+    <PackageReference Include="FFMpegCore" Version="5.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
+    <PackageReference Include="NAudio" Version="2.2.1" />
+    <PackageReference Include="System.Net.Http.Json" Version="9.0.6" />
+    <PackageReference Include="System.Text.Json" Version="9.0.6" />
+    <PackageReference Include="Whisper.net" Version="1.8.1" />
+    <PackageReference Include="Whisper.net.Runtime" Version="1.8.1" />
+    <PackageReference Include="Whisper.net.Runtime.Cuda" Version="1.8.1" />
+    <PackageReference Include="Xabe.FFmpeg" Version="6.0.1" />
+    
+    <!-- 可選的 Runtime 套件（根據需求選擇）：
+         - Whisper.net.Runtime.Cuda: NVIDIA GPU 加速 (需要 CUDA 12.1+)
+         - Whisper.net.Runtime.CoreML: Apple 裝置 (macOS/iOS)
+         - Whisper.net.Runtime.OpenVino: Intel 硬體加速 (需要 OpenVino 2024.4+)
+         - Whisper.net.Runtime.Vulkan: Vulkan 加速 (需要 Vulkan 1.3.290+)
+         - Whisper.net.Runtime.NoAvx: 不支援 AVX 指令集的舊 CPU
+    -->
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <Platforms>AnyCPU;x64</Platforms>
+  </PropertyGroup>
+
+</Project>

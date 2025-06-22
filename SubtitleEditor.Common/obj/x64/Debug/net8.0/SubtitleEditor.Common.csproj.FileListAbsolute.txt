@@ -1,0 +1,12 @@
+D:\字幕神器3\SubtitleEditor.Common\bin\x64\Debug\net8.0\SubtitleEditor.Common.deps.json
+D:\字幕神器3\SubtitleEditor.Common\bin\x64\Debug\net8.0\SubtitleEditor.Common.dll
+D:\字幕神器3\SubtitleEditor.Common\bin\x64\Debug\net8.0\SubtitleEditor.Common.pdb
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.csproj.AssemblyReference.cache
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.AssemblyInfoInputs.cache
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.AssemblyInfo.cs
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.csproj.CoreCompileInputs.cache
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.dll
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\refint\SubtitleEditor.Common.dll
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\SubtitleEditor.Common.pdb
+D:\字幕神器3\SubtitleEditor.Common\obj\x64\Debug\net8.0\ref\SubtitleEditor.Common.dll

@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "JHUCqXFpbEk=",
+  "success": true,
+  "projectFilePath": "D:\\字幕神器3\\WhisperTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TryIt\\.nuget\\packages\\whisper.net\\1.8.1\\whisper.net.1.8.1.nupkg.sha512",
+    "C:\\Users\\TryIt\\.nuget\\packages\\whisper.net.runtime\\1.8.1\\whisper.net.runtime.1.8.1.nupkg.sha512"
+  ],
+  "logs": []
+}

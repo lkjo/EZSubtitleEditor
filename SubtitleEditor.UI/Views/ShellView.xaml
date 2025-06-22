@@ -1,0 +1,112 @@
+<Window x:Class="SubtitleEditor.UI.Views.ShellView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        xmlns:converters="clr-namespace:SubtitleEditor.Modules.Editor.Converters;assembly=SubtitleEditor.Modules.Editor"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="EZSubtitleEditor" Height="600" Width="900"
+        WindowStartupLocation="CenterScreen"
+        Closing="ShellView_Closing">
+
+    <Window.Resources>
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+    </Window.Resources>
+
+    <Grid>
+        <!-- 定義主 Grid 結構 -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>    <!-- 主功能表 -->
+            <RowDefinition Height="*"/>       <!-- 主內容區 -->
+            <RowDefinition Height="150"/>     <!-- TimelineRegion -->
+            <RowDefinition Height="Auto"/>    <!-- StatusBarRegion -->
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>     <!-- 左側面板 -->
+            <ColumnDefinition Width="2*"/>    <!-- 右側字幕格線 -->
+        </Grid.ColumnDefinitions>
+
+        <!-- 主功能表 -->
+        <Menu Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" FontSize="12" VerticalAlignment="Top" Margin="0,0">
+            <MenuItem Header="檔案(_F)">
+                <MenuItem Header="開啟字幕檔(_S)..." 
+                         Command="{Binding OpenSubtitleFileCommand}"
+                         IsEnabled="{Binding IsAiProcessing, Converter={StaticResource InverseBooleanConverter}}" />
+                <MenuItem Header="開啟影片檔(_V)..." 
+                         Command="{Binding OpenVideoFileCommand}"
+                         IsEnabled="{Binding IsAiProcessing, Converter={StaticResource InverseBooleanConverter}}" />
+                <Separator />
+                <MenuItem Header="儲存(_S)" 
+                         Command="{Binding SaveCommand}"
+                         IsEnabled="{Binding IsAiProcessing, Converter={StaticResource InverseBooleanConverter}}" />
+                <MenuItem Header="另存新檔(_A)..." 
+                         Command="{Binding SaveSubtitleFileCommand}"
+                         IsEnabled="{Binding IsAiProcessing, Converter={StaticResource InverseBooleanConverter}}" />
+                <Separator />
+                <MenuItem Header="結束(_X)" 
+                         Command="{Binding ExitApplicationCommand}" />
+            </MenuItem>
+            <MenuItem Header="編輯(_E)">
+                <MenuItem Header="復原(_U)" 
+                         Command="{Binding Path=DataContext.UndoCommand, RelativeSource={RelativeSource AncestorType=Window}}" />
+                <MenuItem Header="取消復原(_R)" 
+                         Command="{Binding Path=DataContext.RedoCommand, RelativeSource={RelativeSource AncestorType=Window}}" />
+                <Separator />
+                <!-- 未來可加入其他編輯相關功能 -->
+            </MenuItem>
+            <MenuItem Header="說明(_H)">
+                <MenuItem Header="關於(_A)" Command="{Binding AboutCommand}" />
+            </MenuItem>
+        </Menu>
+
+        <!-- 左側面板（影片預覽區 + 屬性編輯區）-->
+        <Grid Grid.Row="1" Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="3*"/>    <!-- 影片預覽 -->
+                <RowDefinition Height="*"/>   <!-- 屬性編輯 -->
+            </Grid.RowDefinitions>
+
+            <!-- 影片預覽區 -->
+            <ContentControl prism:RegionManager.RegionName="VideoPlayerRegion"
+                            Grid.Row="0"/>
+
+            <!-- 水平 GridSplitter -->
+            <GridSplitter Grid.Row="1"
+                          Height="6"
+                          HorizontalAlignment="Stretch"
+                          VerticalAlignment="Top"
+                          Background="#FF606060"
+                          BorderBrush="#FF404040"
+                          BorderThickness="0,1,0,1"
+                          ShowsPreview="True"
+                          Cursor="SizeNS"/>
+
+            <!-- 屬性編輯區 -->
+            <ContentControl prism:RegionManager.RegionName="PropertiesRegion"
+                            Grid.Row="1"/>
+        </Grid>
+
+        <!-- 垂直 GridSplitter（左右分隔）-->
+        <GridSplitter Grid.Row="1"
+                      Grid.Column="1"
+                      Width="6"
+                      HorizontalAlignment="Left"
+                      VerticalAlignment="Stretch"
+                      Background="#FF606060"
+                      BorderBrush="#FF404040"
+                      BorderThickness="1,0,1,0"
+                      ShowsPreview="True"
+                      Cursor="SizeWE"/>
+
+        <!-- 字幕編輯格線 -->
+        <ContentControl prism:RegionManager.RegionName="SubtitleEditorRegion"
+                        Grid.Row="1" Grid.Column="1"/>
+
+        <!-- TimelineRegion -->
+        <ContentControl prism:RegionManager.RegionName="TimelineRegion"
+                        Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        <!-- StatusBarRegion -->
+        <ContentControl prism:RegionManager.RegionName="StatusBarRegion"
+                        Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2"/>
+    </Grid>
+</Window> 

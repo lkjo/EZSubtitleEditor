@@ -1,0 +1,56 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+	<TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+	<AssemblyName>EZSubtitleEditor</AssemblyName>
+	<Platforms>AnyCPU;x64</Platforms>
+	
+	<!-- 應用程式資訊 -->
+	<ApplicationIcon>Resources\app.ico</ApplicationIcon>
+	<AssemblyTitle>EZSubtitleEditor</AssemblyTitle>
+	<AssemblyDescription>字幕編輯工具，支援AI語音轉文字功能</AssemblyDescription>
+	<AssemblyCompany>JustTryIt工作室</AssemblyCompany>
+	<AssemblyProduct>EZSubtitleEditor</AssemblyProduct>
+	<AssemblyCopyright>Copyright © 2025 JustTryIt工作室</AssemblyCopyright>
+	<AssemblyVersion>3.0.0.0</AssemblyVersion>
+	<FileVersion>3.0.0.0</FileVersion>
+	<ProductVersion>3.0.0</ProductVersion>
+	
+	<!-- 發布設定 -->
+	<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+	<SelfContained>false</SelfContained>
+	<PublishSingleFile>true</PublishSingleFile>
+	<PublishReadyToRun>true</PublishReadyToRun>
+	<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignColors" Version="5.2.1" />
+    <PackageReference Include="MaterialDesignThemes" Version="5.2.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="9.0.6" />
+    <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.135" />
+    <PackageReference Include="Prism.DryIoc" Version="9.0.537" />
+    <PackageReference Include="Prism.Wpf" Version="9.0.537" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\SubtitleEditor.Common\SubtitleEditor.Common.csproj" />
+    <ProjectReference Include="..\SubtitleEditor.Core\SubtitleEditor.Core.csproj" />
+    <ProjectReference Include="..\SubtitleEditor.Modules.Editor\SubtitleEditor.Modules.Editor.csproj" />
+    <ProjectReference Include="..\SubtitleEditor.Modules.Player\SubtitleEditor.Modules.Player.csproj" />
+    <ProjectReference Include="..\SubtitleEditor.Modules.Timeline\SubtitleEditor.Modules.Timeline.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  
+  <!-- 資源檔案 -->
+  <ItemGroup>
+    <Resource Include="Resources\app.ico" />
+  </ItemGroup>
+</Project>

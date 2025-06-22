@@ -1,0 +1,265 @@
+<UserControl x:Class="SubtitleEditor.Modules.Editor.Views.SubtitleGridView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:md="clr-namespace:MaterialDesignThemes.Wpf;assembly=MaterialDesignThemes.Wpf"
+             xmlns:prism="http://prismlibrary.com/"
+             xmlns:gong="urn:gong-wpf-dragdrop"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
+             xmlns:converters="clr-namespace:SubtitleEditor.Modules.Editor.Converters"
+             prism:ViewModelLocator.AutoWireViewModel="True"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <!-- Boolean 反轉轉換器 -->
+        <converters:InverseBooleanConverter x:Key="InverseBooleanConverter"/>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </UserControl.Resources>
+
+    <!-- <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <md:BundledTheme BaseTheme="Light" PrimaryColor="DeepPurple" SecondaryColor="Lime" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources> -->
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        
+        <!-- 工具列 -->
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="10,10,10,5">
+            <Button Content="+" 
+                    Command="{Binding AddSubtitleCommand}"
+                    Width="40" Height="30"
+                    ToolTip="新增字幕"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    IsEnabled="{Binding IsEditingEnabled}"
+                    Margin="0,0,5,0"/>
+            
+            <!-- Undo/Redo 按鈕 -->
+            <Button Command="{Binding UndoCommand}"
+                    Width="40" Height="30"
+                    ToolTip="復原"
+                    Style="{StaticResource MaterialDesignIconButton}"
+                    IsEnabled="{Binding IsEditingEnabled}"
+                    Margin="5,0,0,0">
+                <md:PackIcon Kind="Undo" 
+                             VerticalAlignment="Center"/>
+            </Button>
+            <Button Command="{Binding RedoCommand}"
+                    Width="40" Height="30"
+                    ToolTip="取消復原"
+                    Style="{StaticResource MaterialDesignIconButton}"
+                    IsEnabled="{Binding IsEditingEnabled}"
+                    Margin="0,0,5,0">
+                <md:PackIcon Kind="Redo" 
+                             VerticalAlignment="Center"/>
+            </Button>
+            
+            <!-- 本地AI字幕按鈕 -->
+            <Button Command="{Binding GenerateLocalAiSubtitlesCommand}"
+                    Width="110" Height="30"
+                    ToolTip="本地AI生成字幕（離線）"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    IsEnabled="{Binding CanUseLocalAi}"
+                    Background="#FF4CAF50"
+                    Foreground="White"
+                    Margin="5,0,2,0">
+                <StackPanel Orientation="Horizontal">
+                    <md:PackIcon Kind="AutoFix" 
+                                 VerticalAlignment="Center"
+                                 Margin="0,0,5,0"/>
+                    <TextBlock Text="本地AI" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+
+            <!-- 雲端AI字幕按鈕 -->
+            <Button Command="{Binding GenerateCloudAiSubtitlesCommand}"
+                    Width="110" Height="30"
+                    ToolTip="雲端AI生成字幕（OpenAI）"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    IsEnabled="{Binding CanUseCloudAi}"
+                    Background="#FF2196F3"
+                    Foreground="White"
+                    Margin="2,0,5,0">
+                <StackPanel Orientation="Horizontal">
+                    <md:PackIcon Kind="Cloud" 
+                                 VerticalAlignment="Center"
+                                 Margin="0,0,5,0"/>
+                    <TextBlock Text="雲端AI" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            
+            <Button Command="{Binding SaveCommand}"
+                    Width="80" Height="30"
+                    ToolTip="儲存字幕檔案"
+                    Style="{StaticResource MaterialDesignRaisedButton}"
+                    IsEnabled="{Binding IsEditingEnabled}">
+                <StackPanel Orientation="Horizontal">
+                    <md:PackIcon Kind="ContentSave" 
+                                 VerticalAlignment="Center"
+                                 Margin="0,0,5,0"/>
+                    <TextBlock Text="儲存" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+        </StackPanel>
+
+        <!-- AI 處理進度區域 -->
+        <Border Grid.Row="1" 
+                Background="#FFF3E5F5"
+                BorderBrush="#FFBA68C8" 
+                BorderThickness="1" 
+                CornerRadius="5"
+                Margin="10,0,10,5"
+                Visibility="{Binding IsAiProcessing, Converter={StaticResource BooleanToVisibilityConverter}}">
+            <StackPanel Margin="15,10">
+                <!-- 進度條標題和圖示 -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+                    <md:PackIcon Kind="AutoFix" 
+                                 VerticalAlignment="Center"
+                                 Foreground="#FF7B1FA2"
+                                 Margin="0,0,8,0"/>
+                    <TextBlock Text="AI 字幕轉錄處理中..."
+                               FontWeight="Medium"
+                               VerticalAlignment="Center"
+                               Foreground="#FF7B1FA2"/>
+                </StackPanel>
+                
+                <!-- 進度條 -->
+                <ProgressBar Value="{Binding AiProgressPercentage}"
+                             Height="8"
+                             Minimum="0"
+                             Maximum="100"
+                             Style="{StaticResource MaterialDesignLinearProgressBar}"
+                             Margin="0,0,0,5"/>
+                             
+                <!-- 下載進度條（藍色） -->
+                <ProgressBar Value="{Binding AiProgressPercentage}"
+                             Height="8"
+                             Minimum="0"
+                             Maximum="100"
+                             Foreground="#FF2196F3"
+                             Style="{StaticResource MaterialDesignLinearProgressBar}"
+                             Margin="0,0,0,5"
+                             Visibility="{Binding IsDownloadProgress, Converter={StaticResource BooleanToVisibilityConverter}}"/>
+                
+                <!-- 進度資訊文字 -->
+                <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                    <TextBlock Text="{Binding AiProgressMessage}"
+                               VerticalAlignment="Center"
+                               Foreground="#FF666666"
+                               FontSize="12"/>
+                    <TextBlock Text="{Binding AiProgressPercentage, StringFormat='{}{0}%'}"
+                               VerticalAlignment="Center"
+                               Foreground="#FF666666"
+                               FontSize="12"
+                               Margin="10,0,0,0"/>
+                </StackPanel>
+
+                <!-- 下載進度特殊提示 -->
+                <StackPanel Orientation="Horizontal" 
+                            Margin="0,5,0,0"
+                            Visibility="{Binding IsDownloadProgress, Converter={StaticResource BooleanToVisibilityConverter}}">
+                    <md:PackIcon Kind="CloudDownload" 
+                                 VerticalAlignment="Center"
+                                 Foreground="#FF2196F3"
+                                 Width="16" Height="16"
+                                 Margin="0,0,5,0"/>
+                    <TextBlock Text="首次使用此模型需要下載，請稍候..."
+                               VerticalAlignment="Center"
+                               Foreground="#FF2196F3"
+                               FontSize="11"
+                               FontStyle="Italic"/>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+        
+        <!-- DataGrid -->
+        <DataGrid x:Name="SubtitlesDataGrid"
+                  Grid.Row="2"
+                  ItemsSource="{Binding Subtitles}" 
+                  SelectedItem="{Binding SelectedSubtitle, Mode=TwoWay}"
+                  IsReadOnly="{Binding IsEditingEnabled, Converter={StaticResource InverseBooleanConverter}}"
+                  IsEnabled="{Binding IsEditingEnabled}"
+                  AutoGenerateColumns="False"
+                  CanUserAddRows="False"
+                  md:DataGridAssist.CellPadding="8"
+                  md:DataGridAssist.ColumnHeaderPadding="8"
+                  gong:DragDrop.IsDragSource="True"
+                  gong:DragDrop.IsDropTarget="True"
+                  gong:DragDrop.DropHandler="{Binding}"
+                  gong:DragDrop.UseDefaultDragAdorner="True"
+                  Margin="10,0,10,10">
+            
+            <!-- 事件觸發器 -->
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="BeginningEdit">
+                    <i:InvokeCommandAction Command="{Binding BeginningEditCommand}" 
+                                          PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+                <i:EventTrigger EventName="CellEditEnding">
+                    <i:InvokeCommandAction Command="{Binding CellEditEndingCommand}" 
+                                          PassEventArgsToCommand="True" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+            <DataGrid.RowStyle>
+                <Style TargetType="DataGridRow" BasedOn="{StaticResource MaterialDesignDataGridRow}">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsActive}" Value="True">
+                            <Setter Property="Background" Value="#FFE1F5FE"/>
+                            <Setter Property="Foreground" Value="#FF0277BD"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.RowStyle>
+            <DataGrid.Columns>
+                <DataGridTemplateColumn Header="" Width="30">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <md:PackIcon Kind="DragHorizontalVariant" 
+                                         HorizontalAlignment="Center" 
+                                         VerticalAlignment="Center"
+                                         Foreground="Gray"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Header="#" 
+                                    Binding="{Binding Index}" 
+                                    Width="50" 
+                                    IsReadOnly="True" />
+                <DataGridTextColumn Header="開始時間" 
+                                    Binding="{Binding StartTime}" 
+                                    Width="120" />
+                <DataGridTextColumn Header="結束時間" 
+                                    Binding="{Binding EndTime}" 
+                                    Width="120" />
+                <DataGridTextColumn Header="演講者" 
+                                    Binding="{Binding Speaker, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Width="100" />
+                <DataGridTextColumn Header="字幕文字" 
+                                    Binding="{Binding Text, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                                    Width="*" />
+                <DataGridTemplateColumn Header="" Width="50">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Command="{Binding DataContext.DeleteSubtitleCommand, RelativeSource={RelativeSource AncestorType=DataGrid}}"
+                                    CommandParameter="{Binding}"
+                                    Style="{StaticResource MaterialDesignIconButton}"
+                                    ToolTip="刪除字幕">
+                                <md:PackIcon Kind="Delete" 
+                                             Foreground="Red"/>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</UserControl>

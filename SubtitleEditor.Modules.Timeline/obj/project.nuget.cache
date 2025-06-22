@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "11rySN07u2c=",
+  "success": true,
+  "projectFilePath": "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\SubtitleEditor.Modules.Timeline.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\TryIt\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.1\\microsoft.extensions.dependencyinjection.abstractions.8.0.1.nupkg.sha512",
+    "C:\\Users\\TryIt\\.nuget\\packages\\microsoft.xaml.behaviors.wpf\\1.1.122\\microsoft.xaml.behaviors.wpf.1.1.122.nupkg.sha512",
+    "C:\\Users\\TryIt\\.nuget\\packages\\prism.container.abstractions\\9.0.106\\prism.container.abstractions.9.0.106.nupkg.sha512",
+    "C:\\Users\\TryIt\\.nuget\\packages\\prism.core\\9.0.537\\prism.core.9.0.537.nupkg.sha512",
+    "C:\\Users\\TryIt\\.nuget\\packages\\prism.events\\9.0.537\\prism.events.9.0.537.nupkg.sha512",
+    "C:\\Users\\TryIt\\.nuget\\packages\\prism.wpf\\9.0.537\\prism.wpf.9.0.537.nupkg.sha512"
+  ],
+  "logs": []
+}

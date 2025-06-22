@@ -1,0 +1,587 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\字幕神器3\\SubtitleEditor.UI\\SubtitleEditor.UI.csproj": {}
+  },
+  "projects": {
+    "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj",
+        "projectName": "SubtitleEditor.Common",
+        "projectPath": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj",
+        "packagesPath": "C:\\Users\\TryIt\\.nuget\\packages\\",
+        "outputPath": "D:\\字幕神器3\\SubtitleEditor.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TryIt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Prism.Core": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj",
+        "projectName": "SubtitleEditor.Core",
+        "projectPath": "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj",
+        "packagesPath": "C:\\Users\\TryIt\\.nuget\\packages\\",
+        "outputPath": "D:\\字幕神器3\\SubtitleEditor.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TryIt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Betalgo.Ranul.OpenAI": {
+              "target": "Package",
+              "version": "[9.0.4, )"
+            },
+            "FFMpegCore": {
+              "target": "Package",
+              "version": "[5.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "NAudio": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
+            "System.Net.Http.Json": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "System.Text.Json": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Whisper.net": {
+              "target": "Package",
+              "version": "[1.8.1, )"
+            },
+            "Whisper.net.Runtime": {
+              "target": "Package",
+              "version": "[1.8.1, )"
+            },
+            "Whisper.net.Runtime.Cuda": {
+              "target": "Package",
+              "version": "[1.8.1, )"
+            },
+            "Xabe.FFmpeg": {
+              "target": "Package",
+              "version": "[6.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\字幕神器3\\SubtitleEditor.Modules.Editor\\SubtitleEditor.Modules.Editor.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\字幕神器3\\SubtitleEditor.Modules.Editor\\SubtitleEditor.Modules.Editor.csproj",
+        "projectName": "SubtitleEditor.Modules.Editor",
+        "projectPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Editor\\SubtitleEditor.Modules.Editor.csproj",
+        "packagesPath": "C:\\Users\\TryIt\\.nuget\\packages\\",
+        "outputPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Editor\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TryIt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj"
+              },
+              "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "MaterialDesignColors": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.135, )"
+            },
+            "Prism.Core": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            },
+            "Prism.Wpf": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            },
+            "gong-wpf-dragdrop": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\字幕神器3\\SubtitleEditor.Modules.Player\\SubtitleEditor.Modules.Player.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\字幕神器3\\SubtitleEditor.Modules.Player\\SubtitleEditor.Modules.Player.csproj",
+        "projectName": "SubtitleEditor.Modules.Player",
+        "projectPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Player\\SubtitleEditor.Modules.Player.csproj",
+        "packagesPath": "C:\\Users\\TryIt\\.nuget\\packages\\",
+        "outputPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Player\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TryIt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "LibVLCSharp.Wpf": {
+              "target": "Package",
+              "version": "[3.9.3, )"
+            },
+            "MaterialDesignColors": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.135, )"
+            },
+            "Prism.DryIoc": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            },
+            "VideoLAN.LibVLC.Windows": {
+              "target": "Package",
+              "version": "[3.0.21, )"
+            },
+            "gong-wpf-dragdrop": {
+              "target": "Package",
+              "version": "[4.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\SubtitleEditor.Modules.Timeline.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\SubtitleEditor.Modules.Timeline.csproj",
+        "projectName": "SubtitleEditor.Modules.Timeline",
+        "projectPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\SubtitleEditor.Modules.Timeline.csproj",
+        "packagesPath": "C:\\Users\\TryIt\\.nuget\\packages\\",
+        "outputPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TryIt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "Prism.Wpf": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\字幕神器3\\SubtitleEditor.UI\\SubtitleEditor.UI.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\字幕神器3\\SubtitleEditor.UI\\SubtitleEditor.UI.csproj",
+        "projectName": "EZSubtitleEditor",
+        "projectPath": "D:\\字幕神器3\\SubtitleEditor.UI\\SubtitleEditor.UI.csproj",
+        "packagesPath": "C:\\Users\\TryIt\\.nuget\\packages\\",
+        "outputPath": "D:\\字幕神器3\\SubtitleEditor.UI\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\TryIt\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Common\\SubtitleEditor.Common.csproj"
+              },
+              "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Core\\SubtitleEditor.Core.csproj"
+              },
+              "D:\\字幕神器3\\SubtitleEditor.Modules.Editor\\SubtitleEditor.Modules.Editor.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Editor\\SubtitleEditor.Modules.Editor.csproj"
+              },
+              "D:\\字幕神器3\\SubtitleEditor.Modules.Player\\SubtitleEditor.Modules.Player.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Player\\SubtitleEditor.Modules.Player.csproj"
+              },
+              "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\SubtitleEditor.Modules.Timeline.csproj": {
+                "projectPath": "D:\\字幕神器3\\SubtitleEditor.Modules.Timeline\\SubtitleEditor.Modules.Timeline.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "MaterialDesignColors": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "MaterialDesignThemes": {
+              "target": "Package",
+              "version": "[5.2.1, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[9.0.6, )"
+            },
+            "Microsoft.NET.ILLink.Tasks": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[8.0.8, )",
+              "autoReferenced": true
+            },
+            "Microsoft.Xaml.Behaviors.Wpf": {
+              "target": "Package",
+              "version": "[1.1.135, )"
+            },
+            "Prism.DryIoc": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            },
+            "Prism.Wpf": {
+              "target": "Package",
+              "version": "[9.0.537, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Crossgen2.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Runtime.win-x64",
+              "version": "[8.0.8, 8.0.8]"
+            }
+          ],
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            },
+            "Microsoft.WindowsDesktop.App.WPF": {
+              "privateAssets": "none"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.401/PortableRuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win-x64": {
+          "#import": []
+        }
+      }
+    }
+  }
+}
