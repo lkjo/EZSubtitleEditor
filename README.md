@@ -1,6 +1,6 @@
 # EZSubtitleEditor
 
-這是一款由 [lkjo](https://github.com/lkjo) 開發的字幕編輯工具，內建強大的 AI 語音轉文字功能，讓您能輕鬆、快速地為影片製作字幕。
+這是一款由 [JustTryIt](https://www.youtube.com/@joetryit) 開發的字幕編輯工具，內建強大的 AI 語音轉文字功能，讓您能輕鬆、快速地為影片製作字幕。
 
 ## ✨ 主要功能
 
@@ -54,4 +54,3 @@ pip install openai-whisper torch numba
 *   本專案的設定檔為 `SubtitleEditor.UI/appsettings.json`，您可以在其中調整部分應用程式行為。
 
 ---
-由 [lkjo](https://github.com/lkjo) 製作 
