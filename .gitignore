@@ -1,0 +1,38 @@
+## Ignore Visual Studio temporary files, build results, and caches
+[Bb]in/
+[Oo]bj/
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+## Ignore other build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+build/
+Build/
+bld/
+[Dd]ebugPS/
+[Rr]eleasePS/
+AppPackages/
+BundleArtifacts/
+Packages/
+TestResults/
+[Ll]ogs/
+
+## Ignore installer files
+[Ss]etup/
+
+## Ignore Rider files
+.idea/
+*.sln.iml
+
+## Ignore user-specific files
+*.DotSettings.user
+
+## Ignore OS-generated files
+.DS_Store
+Thumbs.db 

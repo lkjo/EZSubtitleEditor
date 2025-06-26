@@ -1,5 +1,0 @@
-D:\字幕神器3\SubtitleEditor.Modules.Editor\obj\Debug\net8.0\SubtitleEditor.Modules.Editor.csproj.AssemblyReference.cache
-D:\字幕神器3\SubtitleEditor.Modules.Editor\obj\Debug\net8.0\SubtitleEditor.Modules.Editor.GeneratedMSBuildEditorConfig.editorconfig
-D:\字幕神器3\SubtitleEditor.Modules.Editor\obj\Debug\net8.0\SubtitleEditor.Modules.Editor.AssemblyInfoInputs.cache
-D:\字幕神器3\SubtitleEditor.Modules.Editor\obj\Debug\net8.0\SubtitleEditor.Modules.Editor.AssemblyInfo.cs
-D:\字幕神器3\SubtitleEditor.Modules.Editor\obj\Debug\net8.0\SubtitleEditor.Modules.Editor.csproj.CoreCompileInputs.cache
