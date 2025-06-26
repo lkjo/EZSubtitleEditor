@@ -35,4 +35,7 @@ TestResults/
 
 ## Ignore OS-generated files
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+## Ignore local user profile directory
+%USERPROFILE%/ 
